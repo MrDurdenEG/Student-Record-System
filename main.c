@@ -1,13 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-#include "Function.h"
+
+#include "student.h"
 
 int main() {
     int choice;
 
     file();
+    char admin_pass[20];
+    strcpy(admin_pass ,ADMIN_PASSWORD);
 
     printf("Student Record System\n");
     printf("(1) Admin Mode\n");
@@ -29,15 +29,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
