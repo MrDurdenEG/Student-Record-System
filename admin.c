@@ -19,7 +19,10 @@ void adminMode() {
         printf("(2) Remove student record \n");
         printf("(3) View student record\n");
         printf("(4) View all records\n");
-        printf("(5) Exit\n");
+        printf("(5) Edit student grade\n");
+        printf("(6) change admin password\n");
+        printf("(7) back to the main menu\n");
+        printf("(8) Exit\n");
         printf("Choose an option: ");
         scanf("%d", &choice);
 
@@ -38,32 +41,46 @@ void adminMode() {
             view_all_records();
             break;
         case 5:
+            edit_student_grade();
+            break;
+        case 6:
+            change_admin_password();
+            break;
+        case 7:
+            main();
+            break;
+        case 8:
             printf("Exiting Admin Mode\n");
+            break;
         default:
             printf("invalid choice\n");
             break;
         }
     }
-    while (choice != 5);
+    while (choice != 8);
 }
+
 
 int validate_password(const char *input) {
-    return strcmp(input, ADMIN_PASSWORD) == 0;
+    char stored_password[20];
+    read_admin_password(stored_password);
+    return strcmp(input, stored_password) == 0;
 }
 
-
+studentCount = 0;
 
 void addStudent() {
+    printf("%d\n",studentCount);
     if (studentCount >= MAX_STUDENTS) {
         printf("Student limit reached MAX \n\n");
         return;
     }
-
     Student new_student;
+
     printf("Enter Student Name: ");
     scanf("%s", new_student.name);
-    int flag;
-    while(flag)
+    int flag=0;
+    do
     {
         printf("Enter Student ID: ");
         scanf("%d", &new_student.id);
@@ -71,15 +88,16 @@ void addStudent() {
         for (int i = 0; i < studentCount; i++)
         {
             flag=0;
-            if(new_student.id == students[i]->id)
+            if(new_student.id == students[i].id)
             {
                 printf("Id already exist !\n\n");
                 flag=1;
-                return;
+                break;
             }
 
         }
-    }
+    }while(flag);
+
     printf("Enter Student Age: ");
     scanf("%d", &new_student.age);
     printf("Enter Student Gender: ");
@@ -89,7 +107,7 @@ void addStudent() {
     printf("Enter Student Password: ");
     scanf("%s", new_student.password);
 
-    *students[studentCount++] = new_student;
+    students[studentCount++] = new_student;
     printf("Student added successfully.\n");
 
     savefile();
@@ -101,12 +119,18 @@ void view_all_records() {
         return;
     }
 
+
     printf("Student Records:\n");
     for (int i = 0; i < studentCount; i++) {
-        Student *s = students[i];
-        printf("ID: %d, Name: %s, Age: %d, Gender: %s, Total Grade: %d\n",
-               s->id, s->name, s->age, s->gender, s->totalGrade);
-    }
+            Student s = students[i];
+            printf("ID: %d, Name: %s, Age: %d, Gender: %s, Total Grade: %d\n",
+                   s.id,
+                   s.name,
+                   s.age,
+                   s.gender,
+                    s.totalGrade);
+
+   }
 }
 
 void view_Student_record() {
@@ -115,14 +139,15 @@ void view_Student_record() {
     scanf("%d", &id);
 
     for (int i = 0; i < studentCount; i++) {
-        if (students[i]->id == id) {
-            Student *s = students[i];
+        if (students[i].id == id) {
+                file();
+            Student s = students[i];
             printf("Student Details:\n");
-            printf("Name: %s\n", s->name);
-            printf("ID: %d\n", s->id);
-            printf("Age: %d\n", s->age);
-            printf("Gender: %s\n", s->gender);
-            printf("Total Grade: %d\n\n", s->totalGrade);
+            printf("Name: %s\n", s.name);
+            printf("ID: %d\n", s.id);
+            printf("Age: %d\n", s.age);
+            printf("Gender: %s\n", s.gender);
+            printf("Total Grade: %d\n\n", s.totalGrade);
             return;
         }
     }
@@ -138,7 +163,7 @@ void delete_student_record() {
     int pos=-1;
 
     for(int i=0 ; i < studentCount ; i++){
-        if(students[i]->id == id){
+        if(students[i].id == id){
             pos = i;
             break;
         }
@@ -157,4 +182,59 @@ void delete_student_record() {
     printf("Student record deleted :)\n\n");
 
     savefile();
+}
+void edit_student_grade()
+{
+    int id;
+    int new_grade;
+    if(studentCount == 0)
+    {
+        printf("there is no students \n");
+        return;
+    }
+
+    printf("Enter Student ID: ");
+    scanf("%d", &id);
+    for (int i = 0; i < studentCount; i++)
+    {
+        if (students[i].id == id) {
+
+            printf("enter the new grade : ");
+            scanf("%d",&new_grade);
+            students[i].totalGrade=new_grade;
+            savefile();
+            printf("Student grade updated successfully \n\n");
+            return;
+        }
+    }
+    printf("Student with ID %d not found\n", id);
+}
+
+void change_admin_password()
+{
+
+    char *new_password;
+    char *entered_password;
+
+
+    printf("enter the old password : ");
+    scanf("%s",entered_password);
+
+    entered_password = (char *)malloc(30 * sizeof(char));
+    if (entered_password == NULL)
+    {
+        printf("Memory allocation failed\n");
+        return;
+    }
+
+    if(validate_password(entered_password)){
+        printf("enter the new password: ");
+        scanf("%s",new_password);
+
+        write_admin_password(new_password);
+
+        printf("Password changed successfully.\n");
+        return;
+    }
+    printf("the old password is wrong !!\n\n");
 }

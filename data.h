@@ -6,29 +6,32 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define DATA_FILE "students.csv"
-#define ADMIN_PASSWORD "1234"
-
+#define DATA_FILE "students.txt"
+//extern char ADMIN_PASSWORD[20] ;
 
 #define MAX_STUDENTS 100
 
+#define PASSWORD_FILE "admin_password.txt"
 
-int studentCount = 0;
-void savefile();
-void file();
-void save_admin_pass();
-void call_admin_pass();
+
+extern int studentCount ;
 
 typedef struct {
-    char *name;
+    char name[20];
     int totalGrade;
     int id;
     int age;
     char gender[10];
-    char *password;
+    char password[20];
 } Student;
 
-Student *students[MAX_STUDENTS];
+Student students[MAX_STUDENTS];
+
+void savefile();
+void file();
+void read_admin_password(char *password);
+void write_admin_password(char *password);
+
 #endif // DATA_H
 
 

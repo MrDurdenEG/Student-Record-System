@@ -1,25 +1,25 @@
 # depslib dependency file v1.0
-1714612074 source:c:\users\htech\desktop\new project\student_record\student.c
+1714778597 source:c:\users\htech\desktop\new project\student_record\student.c
 	"student.h"
 
-1714649963 source:c:\users\htech\desktop\new project\student_record\main.c
+1714778696 source:c:\users\htech\desktop\new project\student_record\main.c
+	"admin.h"
 	"student.h"
 
-1714650306 c:\users\htech\desktop\new project\student_record\admin.h
+1714776805 c:\users\htech\desktop\new project\student_record\admin.h
 	"data.h"
-	"student.h"
 
-1714613653 c:\users\htech\desktop\new project\student_record\data.h
+1714777845 c:\users\htech\desktop\new project\student_record\data.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1714649963 c:\users\htech\desktop\new project\student_record\student.h
-	"admin.h"
-
-1714650221 source:c:\users\htech\desktop\new project\student_record\data.c
+1714778309 c:\users\htech\desktop\new project\student_record\student.h
 	"data.h"
 
-1714650135 source:c:\users\htech\desktop\new project\student_record\admin.c
+1714778852 source:c:\users\htech\desktop\new project\student_record\data.c
+	"data.h"
+
+1714778309 source:c:\users\htech\desktop\new project\student_record\admin.c
 	"admin.h"
 
