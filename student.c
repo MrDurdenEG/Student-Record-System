@@ -110,14 +110,20 @@ void edit_student_password()
     scanf("%s", &password);
     for (int i = 0; i < studentCount; i++)
     {
-        if (students[i].id == id && strcmp(students[i].password,password)==0) {
+        if (students[i].id == id)
+        {
+            if(strcmp(students[i].password,password)==0)
+            {
 
-            printf("enter the new password : ");
-            scanf("%s",new_password);
-            strcpy(students[i].password,new_password);
-            savefile();
-            printf("Student password updated successfully \n\n");
-            return;
+                printf("enter the new password : ");
+                scanf("%s",new_password);
+                strcpy(students[i].password,new_password);
+                savefile();
+                printf("Student password updated successfully \n\n");
+                return;
+            }
+                printf("you entered Wrong password !! \n");
+                return;
         }
     }
     printf("Student with ID %d not found\n", id);
