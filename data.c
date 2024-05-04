@@ -32,16 +32,16 @@ void file() {
 void read_admin_password(char *password) {
     FILE *file = fopen(PASSWORD_FILE, "r");
     if (file == NULL) {
-        strcpy(password, "1234");
-        *password = '\0';
+        strncpy(password, "1234",19);
+        password[19] = '\0';
         return;
     }
 
-    fscanf(file, "%s", password);
+    fscanf(file, "%19s", password);
     fclose(file);
 }
 
-void write_admin_password(char *password) {
+void write_admin_password(const char *password) {
     FILE *file = fopen(PASSWORD_FILE, "w");
     if (file == NULL) {
         printf("Error opening file to write password\n");

@@ -30,7 +30,7 @@ Student students[MAX_STUDENTS];
 void savefile();
 void file();
 void read_admin_password(char *password);
-void write_admin_password(char *password);
+void write_admin_password(const char *password);
 
 #endif // DATA_H
 

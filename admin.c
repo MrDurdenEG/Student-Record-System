@@ -212,24 +212,16 @@ void edit_student_grade()
 
 void change_admin_password()
 {
-
-    char *new_password;
-    char *entered_password;
-
+  char current_password[19];
+    char new_password[19];
+    char entered_password[19];
+   read_admin_password(current_password);
 
     printf("enter the old password : ");
     scanf("%s",entered_password);
-
-    entered_password = (char *)malloc(30 * sizeof(char));
-    if (entered_password == NULL)
-    {
-        printf("Memory allocation failed\n");
-        return;
-    }
-
-    if(validate_password(entered_password)){
-        printf("enter the new password: ");
-        scanf("%s",new_password);
+if (strcmp(entered_password, current_password) == 0) {
+        printf("Enter the new password: ");
+        scanf("%19s", new_password);
 
         write_admin_password(new_password);
 

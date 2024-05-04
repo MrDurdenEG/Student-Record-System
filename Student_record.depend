@@ -23,3 +23,27 @@
 1714778309 source:c:\users\htech\desktop\new project\student_record\admin.c
 	"admin.h"
 
+1714807287 source:c:\users\user\downloads\student-record-system-main\admin.c
+	"admin.h"
+
+1714780246 c:\users\user\downloads\student-record-system-main\admin.h
+	"data.h"
+
+1714807535 c:\users\user\downloads\student-record-system-main\data.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1714807556 source:c:\users\user\downloads\student-record-system-main\data.c
+	"data.h"
+
+1714780246 source:c:\users\user\downloads\student-record-system-main\main.c
+	"admin.h"
+	"student.h"
+
+1714780246 c:\users\user\downloads\student-record-system-main\student.h
+	"data.h"
+
+1714780246 source:c:\users\user\downloads\student-record-system-main\student.c
+	"student.h"
+
