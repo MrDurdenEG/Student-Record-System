@@ -3,12 +3,13 @@
 void userMode() {
     int choice;
     do {
+        printf("---------------------------------\n");
         printf("User Mode:\n");
         printf("(1) Find Student by ID\n");
         printf("(2) edit student name\n");
         printf("(3) edit student password\n");
-        printf("(4) back to the main menu\n");
-        printf("(5) Exit\n");
+        printf("(4) Exit\n");
+        printf("---------------------------------\n");
         printf("Choose an option: ");
         scanf("%d", &choice);
         switch (choice)
@@ -23,16 +24,13 @@ void userMode() {
             edit_student_password();
             break;
         case 4:
-            main();
-            break;
-        case 5:
-            printf("exiting User Mode\n");
+           printf("exiting User Mode\n");
             break;
         default:
             printf("invalid choice\n");
             break;
         }
-    } while (choice != 5);
+    } while (choice != 4);
 }
 
 
@@ -53,6 +51,7 @@ void view_record_id()
     for (int i = 0; i < studentCount; i++) {
         Student s = students[i];
         if (s.id == id && strcmp(s.password, password) == 0) {
+            printf("---------------------------------\n");
             printf("Student Details:\n");
             printf("Name: %s\n", s.name);
             printf("ID: %d\n", s.id);
@@ -66,6 +65,7 @@ void view_record_id()
     printf("No student found with the given ID and password.\n");
 
 }
+
 
 void edit_student_name()
 {
@@ -85,6 +85,7 @@ void edit_student_name()
 
             printf("enter the new name : ");
             scanf("%s",new_name);
+
             strcpy(students[i].name,new_name);
             savefile();
             printf("Student name updated successfully \n\n");
@@ -93,6 +94,7 @@ void edit_student_name()
     }
     printf("Student with ID %d not found\n", id);
 }
+
 void edit_student_password()
 {
     int id;
