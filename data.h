@@ -13,7 +13,6 @@
 
 #define PASSWORD_FILE "admin_password.txt"
 
-
 extern int studentCount ;
 
 typedef struct {

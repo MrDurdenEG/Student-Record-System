@@ -9,7 +9,12 @@ void savefile() {
 
 
     for (int i = 0; i < studentCount; i++) {
-        fprintf(file, "%s %d %d %s %d %s\n", students[i].name, students[i].id, students[i].age, students[i].gender, students[i].totalGrade, students[i].password);
+        fprintf(file, "%s %d %d %s %d %s\n",
+        students[i].name, students[i].id,
+        students[i].age,
+        students[i].gender,
+        students[i].totalGrade,
+        students[i].password);
     }
 
     fclose(file);

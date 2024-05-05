@@ -25,6 +25,7 @@ void adminMode() {
     int choice;
     do
     {
+        printf("---------------------------------\n");
         printf("Admin Mode:\n");
         printf("(1) Add student record\n");
         printf("(2) Remove student record \n");
@@ -32,8 +33,8 @@ void adminMode() {
         printf("(4) View all records\n");
         printf("(5) Edit student grade\n");
         printf("(6) change admin password\n");
-        printf("(7) back to the main menu\n");
-        printf("(8) Exit\n");
+        printf("(7) Exit\n");
+        printf("---------------------------------\n");
         printf("Choose an option: ");
         scanf("%d", &choice);
 
@@ -58,17 +59,16 @@ void adminMode() {
             change_admin_password();
             break;
         case 7:
-            main();
-            break;
-        case 8:
             printf("Exiting Admin Mode\n");
             break;
-        default:
+            default:
             printf("invalid choice\n");
             break;
+
+
         }
     }
-    while (choice != 8);
+    while (choice != 7);
 }
 
 
@@ -81,13 +81,14 @@ int validate_password(const char *input) {
 studentCount = 0;
 
 void addStudent() {
+    printf("---------------------------------\n");
     printf("Student count : %d\n",studentCount);
     if (studentCount >= MAX_STUDENTS) {
         printf("Student limit reached MAX \n\n");
         return;
     }
     Student new_student;
-
+    printf("---------------------------------\n");
     printf("Enter Student Name: ");
     scanf("%s", new_student.name);
     int flag=0;
@@ -146,7 +147,7 @@ void view_all_records() {
                    s.name,
                    s.age,
                    s.gender,
-                    s.totalGrade);
+                   s.totalGrade);
 
    }
 }
@@ -158,8 +159,9 @@ void view_Student_record() {
 
     for (int i = 0; i < studentCount; i++) {
         if (students[i].id == id) {
-                file();
+                //file();
             Student s = students[i];
+            printf("---------------------------------\n");
             printf("Student Details:\n");
             printf("Name: %s\n", s.name);
             printf("ID: %d\n", s.id);
