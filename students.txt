@@ -1,6 +1,8 @@
 nouran 111 20 female 88 123
-ahmed 555 20 male 90 777
-sara 222 21 female 85 444
+ahmed 555 20 male 96 777
+hala 222 21 female 85 444
+mai 55 22 female 80 11
 nouran 111 20 female 88 123
 ahmed 555 20 male 96 777
 sara 222 21 female 85 444
+mai 55 22 female 80 11

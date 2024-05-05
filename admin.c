@@ -113,8 +113,15 @@ void addStudent() {
     scanf("%d", &new_student.age);
     printf("Enter Student Gender: ");
     scanf("%s", new_student.gender);
-    printf("Enter Student Total Grade: ");
-    scanf("%d", &new_student.totalGrade);
+    do {
+        printf("Enter Student Total Grade (0-100): ");
+        scanf("%d", &new_student.totalGrade);
+
+        if (new_student.totalGrade < 0 || new_student.totalGrade > 100) {
+            printf("Invalid grade! Please enter a value between 0 and 100.\n");
+        }
+    } while (new_student.totalGrade < 0 || new_student.totalGrade > 100);
+
     printf("Enter Student Password: ");
     scanf("%s", new_student.password);
 
@@ -209,9 +216,13 @@ void edit_student_grade()
     for (int i = 0; i < studentCount; i++)
     {
         if (students[i].id == id) {
-
-            printf("enter the new grade : ");
+                 do {
+            printf("enter the new grade (0-100): ");
             scanf("%d",&new_grade);
+        if (new_grade < 0 || new_grade> 100) {
+            printf("Invalid grade! Please enter a value between 0 and 100.\n");
+        }
+    } while (new_grade < 0 || new_grade > 100);
             students[i].totalGrade=new_grade;
             savefile();
             printf("Student grade updated successfully \n\n");

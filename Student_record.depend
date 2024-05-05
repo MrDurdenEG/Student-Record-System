@@ -47,13 +47,13 @@
 1714780246 source:c:\users\user\downloads\student-record-system-main\student.c
 	"student.h"
 
-1714882975 source:c:\users\user\downloads\student\student-record-system\admin.c
+1714883170 source:c:\users\user\downloads\student\student-record-system\admin.c
 	"admin.h"
 
 1714882975 c:\users\user\downloads\student\student-record-system\admin.h
 	"data.h"
 
-1714807535 c:\users\user\downloads\student\student-record-system\data.h
+1714891176 c:\users\user\downloads\student\student-record-system\data.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
