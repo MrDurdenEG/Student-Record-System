@@ -47,3 +47,27 @@
 1714780246 source:c:\users\user\downloads\student-record-system-main\student.c
 	"student.h"
 
+1714882975 source:c:\users\user\downloads\student\student-record-system\admin.c
+	"admin.h"
+
+1714882975 c:\users\user\downloads\student\student-record-system\admin.h
+	"data.h"
+
+1714807535 c:\users\user\downloads\student\student-record-system\data.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1714807556 source:c:\users\user\downloads\student\student-record-system\data.c
+	"data.h"
+
+1714780246 source:c:\users\user\downloads\student\student-record-system\main.c
+	"admin.h"
+	"student.h"
+
+1714780246 c:\users\user\downloads\student\student-record-system\student.h
+	"data.h"
+
+1714780246 source:c:\users\user\downloads\student\student-record-system\student.c
+	"student.h"
+

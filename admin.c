@@ -2,12 +2,23 @@
 
 void adminMode() {
     char password[20];
+    int attempts = 0;
+    while (attempts < MAX_PASSWORD_ATTEMPTS)
+        {
     printf("Enter Admin Password: ");
     scanf("%s", password);
+    if (validate_password(password))
+        {
+            break;
+        }
+    attempts++;
+        if (attempts < MAX_PASSWORD_ATTEMPTS) {
+            printf("Wrong password. You have %d attempts left.\n", MAX_PASSWORD_ATTEMPTS - attempts);
+        }
+    }
 
-    if (!validate_password(password))
-    {
-        printf("wrong password\n");
+    if (attempts == MAX_PASSWORD_ATTEMPTS) {
+        printf("Too many failed attempts. Exiting Admin Mode.\n");
         return;
     }
 

@@ -4,7 +4,7 @@
 
 #include "data.h"
 
-
+#define MAX_PASSWORD_ATTEMPTS 3
 
 void adminMode();
 int validate_password(const char *input);
