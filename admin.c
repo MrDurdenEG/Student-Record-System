@@ -81,7 +81,7 @@ int validate_password(const char *input) {
 studentCount = 0;
 
 void addStudent() {
-    printf("%d\n",studentCount);
+    printf("Student count : %d\n",studentCount);
     if (studentCount >= MAX_STUDENTS) {
         printf("Student limit reached MAX \n\n");
         return;

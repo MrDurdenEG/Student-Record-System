@@ -22,7 +22,13 @@ void file() {
         return;
     }
 
-    while (fscanf(file, "%s %d %d %s %d %s", &(students[studentCount].name), &(students[studentCount].id), &(students[studentCount].age), &(students[studentCount].gender), &(students[studentCount].totalGrade), &(students[studentCount].password)) != EOF) {
+    while (fscanf(file, "%s %d %d %s %d %s",
+    &(students[studentCount].name),
+    &(students[studentCount].id),
+    &(students[studentCount].age),
+    &(students[studentCount].gender),
+    &(students[studentCount].totalGrade),
+    &(students[studentCount].password)) != EOF) {
 
         studentCount++;
     }
